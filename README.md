@@ -1,25 +1,27 @@
 # iChat2
-1 - https://aws-amplify.github.io/docs/ -> create an aws account
-2 - npm install -g @aws-amplify/cli
-3 - amplify configure
-      region: eu-central-1
-	    enter user
-	    get access key id
-	    get secret access
 
-4 - amplify init
-5 - add these lines to index.js
+1. https://aws-amplify.github.io/docs/ -> create an aws account
+2. npm install -g @aws-amplify/cli
+3. amplify configure
+	- region: eu-central-1
+	- enter user
+	- get access key id
+	- get secret access
+4. amplify init
+5. add these lines to index.js
+```
 -----------index.js--------------
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
 Amplify.configure(config)
+```
 
-6 - amplify add auth
-7 - amplify add api
-8 - amplify push
+6. amplify add auth
+7. amplify add api
+8. amplify push
 
-Schema:
-
+## Schema:
+```
 type User @model {
   id: ID!
   username: String!
@@ -67,3 +69,4 @@ type Subscription {
   onCreateMessage(messageConversationId: ID!): Message
     @aws_subscribe(mutations: ["createMessage"])
 }
+```
